@@ -5,6 +5,7 @@ import com.galenframework.reports.GalenTestInfo;
 import com.galenframework.reports.HtmlReportBuilder;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeSuite;
 
 import java.io.IOException;
 import java.util.LinkedList;
@@ -14,7 +15,9 @@ public class galenTest {
 
     public static List<GalenTestInfo> objGalentestsList;
     public static HtmlReportBuilder htmlReportBuilder;
-    galenTest(){
+
+    @BeforeSuite
+    public void createReport(){
          objGalentestsList= new LinkedList<GalenTestInfo>();
     }
 
