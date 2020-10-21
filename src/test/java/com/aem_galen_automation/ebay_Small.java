@@ -19,7 +19,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 
-public class ebay_Small
+public class ebay_Small extends galenTest
 {
 
     //	Testing general web element attributes
@@ -30,25 +30,20 @@ public class ebay_Small
     {
         // testing done at specific browser size which can be customised per user needs
         driver.manage().window().setSize(new Dimension(browserSizeSmallW, browserSizeSmallH));
-        System.out.println("I am in Large Test ");
+        System.out.println("I am in small test");
         
         //Create a layoutReport object
         //checkLayout function checks the layout and returns a LayoutReport object
         LayoutReport objLayoutReport =
                 Galen.checkLayout(driver, specFilePath, Arrays.asList("Desktop_Small"));
 
-        //Create a galen test info list
-        List<GalenTestInfo> objGalentestsList	= new LinkedList<GalenTestInfo>();
         //Create a GalenTestInfo object
         GalenTestInfo objSingleGalenTest 		= GalenTestInfo.fromString("ebay Small");
         //Get layoutReport and assign to test object
         objSingleGalenTest.getReport().layout(objLayoutReport, "ebay size test small");
         //Add test object to the tests list
         objGalentestsList.add(objSingleGalenTest);
-        //Create a htmlReportBuilder object
-        HtmlReportBuilder htmlReportBuilder = new HtmlReportBuilder();
-        //Create a report under specified folder based on tests list
-        htmlReportBuilder.build(objGalentestsList, "GalenReportFolders");
+
         //If layoutReport has errors Assert Fail
         if (objLayoutReport.errors() > 0)
         {
@@ -77,7 +72,7 @@ public class ebay_Small
     }
 
     @AfterMethod
-	public void tearDown()
+    public void tearDown()
     {
         driver.quit();
     }

@@ -25,7 +25,7 @@ import com.galenframework.reports.HtmlReportBuilder;
 import com.galenframework.reports.model.LayoutReport;
 
 
-public class ebay_Large
+public class ebay_Large extends galenTest
 {
 
 //	Testing general web element attributes
@@ -45,27 +45,22 @@ public class ebay_Large
     	driver = new ChromeDriver();
     	System.out.println("Browser is set as Chrome");
         driver.get(testUrl);
-// testing done at specific browser size which can be customized per user needs
+        // testing done at specific browser size which can be customized per user needs
         driver.manage().window().setSize(new Dimension(browserSizeLargeW, browserSizeLargeH));
         System.out.println("I am in Large Test ");
-//Create a layoutReport object
-//CheckLayout function checks the layout and returns a LayoutReport object
+        //Create a layoutReport object
+        //CheckLayout function checks the layout and returns a LayoutReport object
         LayoutReport objLayoutReport =
                 Galen.checkLayout(driver, specFilePath, Arrays.asList("Desktop_Large"));
 
-//Create a galen test info list
-        List<GalenTestInfo> objGalentestsList = new LinkedList<GalenTestInfo>();
-//Create a GalenTestInfo object
+        //Create a GalenTestInfo object
         GalenTestInfo objSingleGalenTest = GalenTestInfo.fromString("ebay Large");
-//Get layoutReport and assign to test object
+        //Get layoutReport and assign to test object
         objSingleGalenTest.getReport().layout(objLayoutReport, "ebay size test large");
-//Add test object to the tests list
+        //Add test object to the tests list
         objGalentestsList.add(objSingleGalenTest);
-//Create a htmlReportBuilder object
-        HtmlReportBuilder htmlReportBuilder = new HtmlReportBuilder();
-//Create a report under specified folder based on tests list
-        htmlReportBuilder.build(objGalentestsList, "GalenReportFolders");
-//If layoutReport has errors Assert Fail
+
+        //If layoutReport has errors Assert Fail
         if (objLayoutReport.errors() > 0){
             System.out.println("Layout test failed for ebay size test large");
             AssertJUnit.fail();
@@ -85,9 +80,9 @@ public class ebay_Large
 //        driver.get(galenSampleUrl);
 //    }
 //
-//    @AfterTest
-//    public void tearDown()
-//    {
-//        driver.quit();
-//    }
+    @AfterTest
+    public void tearDown()
+    {
+        driver.quit();
+    }
 }
