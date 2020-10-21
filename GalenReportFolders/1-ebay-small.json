@@ -1,0 +1,94 @@
+{
+  "testId" : "1-ebay-small",
+  "name" : "ebay Small",
+  "report" : {
+    "nodes" : [ {
+      "name" : "ebay size test small",
+      "status" : "error",
+      "time" : 1603261717768,
+      "includedTags" : [ "Desktop_Small" ],
+      "excludedTags" : [ ],
+      "sections" : [ {
+        "name" : "Page: Home page",
+        "place" : {
+          "filePath" : "galen_spec_gspec/ebay_sizes.gspec",
+          "lineNumber" : 8
+        },
+        "objects" : [ {
+          "name" : "carousel_container",
+          "specs" : [ {
+            "status" : "info",
+            "place" : {
+              "filePath" : "galen_spec_gspec/ebay_sizes.gspec",
+              "lineNumber" : 24
+            },
+            "name" : "height 330 to 450 px",
+            "highlight" : [ "carousel_container" ]
+          }, {
+            "status" : "error",
+            "place" : {
+              "filePath" : "galen_spec_gspec/ebay_sizes.gspec",
+              "lineNumber" : 25
+            },
+            "name" : "width 917px",
+            "errors" : [ "\"carousel_container\" width is 919px instead of 917px" ],
+            "highlight" : [ "carousel_container" ]
+          } ]
+        }, {
+          "name" : "category1",
+          "specs" : [ {
+            "status" : "info",
+            "place" : {
+              "filePath" : "galen_spec_gspec/ebay_sizes.gspec",
+              "lineNumber" : 28
+            },
+            "name" : "above category2",
+            "highlight" : [ "category1", "category2" ]
+          } ]
+        }, {
+          "name" : "category2",
+          "specs" : [ {
+            "status" : "error",
+            "place" : {
+              "filePath" : "galen_spec_gspec/ebay_sizes.gspec",
+              "lineNumber" : 31
+            },
+            "name" : "height 337px",
+            "errors" : [ "\"category2\" height is 347px instead of 337px" ],
+            "highlight" : [ "category2" ]
+          }, {
+            "status" : "error",
+            "place" : {
+              "filePath" : "galen_spec_gspec/ebay_sizes.gspec",
+              "lineNumber" : 32
+            },
+            "name" : "width 917px",
+            "errors" : [ "\"category2\" width is 919px instead of 917px" ],
+            "highlight" : [ "category2" ]
+          }, {
+            "status" : "info",
+            "place" : {
+              "filePath" : "galen_spec_gspec/ebay_sizes.gspec",
+              "lineNumber" : 33
+            },
+            "name" : "below category1",
+            "highlight" : [ "category2", "category1" ]
+          } ]
+        } ]
+      } ],
+      "objects" : {
+        "category2" : {
+          "area" : [ 0, 1376, 919, 347 ]
+        },
+        "category1" : {
+          "area" : [ 0, 965, 919, 347 ]
+        },
+        "carousel_container" : {
+          "area" : [ 0, 144, 919, 346 ]
+        }
+      },
+      "screenshot" : "layout-1-screenshot.png",
+      "type" : "layout"
+    } ]
+  }
+}
